@@ -1,0 +1,13 @@
+---
+
+- name: install atop
+  yum: name=atop state=present
+
+- name: render logrotate file
+  template: 
+    src="logrotate-atop.j2"
+    dest=/etc/logrotate.d/atop
+    owner=root
+    group=root
+    mode=0644
+
